@@ -1,7 +1,7 @@
 import { UUID } from "crypto";
 
 export interface Competence {
-  id: UUID
+  id: UUID | string;
   title: string;
   description: string;
 };
