@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { Competences as CompetenceList } from "../../app/interfaces/competence.types";
 import Competence from "./Competence";
+import ChevronIcon from "@/app/components/atoms/ChevronIcon";
 
 interface CompetencesProps {
   competences: CompetenceList
@@ -29,7 +30,7 @@ const Competences: FC<CompetencesProps>  = ({ competences }) => {
   return (
     <div className="competences-container">
       <button className="prev-btn" onClick={previous}>
-        <img src="/svg/chevronLeft.svg" />
+        <ChevronIcon name="left"/>
       </button>
       <div className="competences-context">
         {caroussel.map(competence => (
@@ -37,7 +38,7 @@ const Competences: FC<CompetencesProps>  = ({ competences }) => {
         ))}
       </div>
       <button className="next-btn" onClick={next}>
-        <img src="/svg/chevronRight.svg" />
+        <ChevronIcon name="right"/>
       </button>
     </div>
   )
