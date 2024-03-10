@@ -1,9 +1,9 @@
 import './styles.scss';
-import Competences from "./Competences";
+import Competences from "./components/competences/Competences";
 
 const Home = ({ competences=[] }) => {
   return (
-    <section className='competences-section'>
+    <section className='section-competences'>
       <h2>Competências</h2>
       <Competences competences={competences} />
     </section>
