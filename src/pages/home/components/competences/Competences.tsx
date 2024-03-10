@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
-import { Competences as CompetenceList } from "../../app/interfaces/competence.types";
+import { Competences as CompetenceList } from "@app/interfaces/competence.types";
 import Competence from "./Competence";
-import ChevronIcon from "@/app/components/atoms/ChevronIcon";
+import ChevronIcon from "@components/atoms/ChevronIcon";
 
 interface CompetencesProps {
   competences: CompetenceList
