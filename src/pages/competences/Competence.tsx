@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Image from 'next/image'
 
-import { Competence as CompetenceItem } from "../../app/interfaces/competence";
+import { Competence as CompetenceItem } from "../../app/interfaces/competence.types";
 
 interface CompetenceProps  {
   competence: CompetenceItem

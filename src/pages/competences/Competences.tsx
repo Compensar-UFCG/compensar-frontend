@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Competences as CompetenceList } from "../../app/interfaces/competence";
+import { Competences as CompetenceList } from "../../app/interfaces/competence.types";
 import Competence from "./Competence";
 
 interface CompetencesProps {
