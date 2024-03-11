@@ -1,6 +1,6 @@
 import './styles.scss';
-import Competences from "./components/competences/Competences";
-import { Competences as CompetencesType } from '@/app/interfaces/competence.types';
+import Competences from "@components/pages/competences/Competences";
+import { Competences as CompetencesType } from '@app/interfaces/competence.types';
 
 interface HomeProps {
   competences: CompetencesType;
