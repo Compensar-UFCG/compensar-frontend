@@ -5,25 +5,3 @@ $secondary-background-color: #e9e6e9;
 $font-primary-color: #1C1C1C;
 $font-secondary-color: #4F4F4F;
 $font-family: serif;
-
-body {
-  background-color: $primary-background-color;
-
-  h2 {
-    color: $font-primary-color;
-    font-family: $font-family;
-    font-size: 18px;
-  }
-
-  h3 {
-    color: $font-secondary-color;
-    font-family: $font-family;
-    font-size: 16px;
-  }
-
-  article {
-    color: $font-secondary-color;
-    font-family: $font-family;
-    font-size: 14px;
-  }
-}
