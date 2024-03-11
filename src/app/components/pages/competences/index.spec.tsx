@@ -1,5 +1,5 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import competencesMock from './components/competences/tests/mocks/competencesMock.json';
+import { render, screen } from '@testing-library/react';
+import competencesMock from './tests/mocks/competencesMock.json';
 import Home, { getServerSideProps} from '@/pages/home';
 
 describe('Home', () => {
