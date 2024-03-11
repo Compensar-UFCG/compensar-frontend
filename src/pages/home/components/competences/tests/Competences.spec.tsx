@@ -70,4 +70,32 @@ describe('Competences component', () => {
     expect(titleElement).toBeInTheDocument();
     expect(descriptionElement).toBeInTheDocument();
   });
+  it('check when clicks in previous button if the component does not return an error', async () => {
+    render(<Competences competences={competencesMock} />);
+    
+    const previousBtn = screen.getAllByRole('button')[0];
+
+    fireEvent.click(previousBtn);
+    
+    const titleElement = await screen.findByText(competencesMock[0].title);
+    const descriptionElement = await screen.findByText(competencesMock[0].description);
+
+    expect(titleElement).toBeInTheDocument();
+    expect(descriptionElement).toBeInTheDocument();
+  });
+
+  it('checks when you click on the nextBtn button and reaches the last element checks if the component does not return an error', async () => {
+    render(<Competences competences={competencesMock} />);
+    
+    const nextBtn = screen.getAllByRole('button')[1];
+
+    fireEvent.click(nextBtn);
+    fireEvent.click(nextBtn);
+    
+    const titleElement = await screen.findByText(competencesMock[4].title);
+    const descriptionElement = await screen.findByText(competencesMock[4].description);
+
+    expect(titleElement).toBeInTheDocument();
+    expect(descriptionElement).toBeInTheDocument();
+  });
 });
