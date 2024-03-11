@@ -8,6 +8,7 @@ module.exports = {
     '^@app/(.*)$': '<rootDir>/src/app/$1',
     '^@components/(.*)$': '<rootDir>/src/app/components/$1',
     '^@styles/(.*)$': '<rootDir>/src/app/styles/$1',
+    '\\.(scss)$': 'identity-obj-proxy'
   },
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
