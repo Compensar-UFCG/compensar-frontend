@@ -23,25 +23,5 @@
       "id": "65e71a626b58df0b9764fd10",
       "title": "Abstração",
       "description": "Analisar um contexto real visando obter dados e expressões relevantes que irão auxiliar na resolução do problema proposto pela atividade. Esse procedimento é necessário para que o aluno realize assimilações do que aprendeu com problemas reais."
-  },
-  {
-      "id": "65e71a716b58df0b9764fd12",
-      "title": "Algoritmos e Procedimentos",
-      "description": "Resolver o problema proposto na atividade utilizando uma sequência lógica de passos que não estejam explícitos. Trata-se da organização do procedimento de resolução por meio de um passo a passo, por exemplo."
-  },
-  {
-      "id": "65e71a7e6b58df0b9764fd14",
-      "title": "Automação",
-      "description": "Usar ferramentas para auxiliar o processo de resolução do problema proposto na atividade como a calculadora, por exemplo."
-  },
-  {
-      "id": "65e71a8c6b58df0b9764fd16",
-      "title": "Simulação",
-      "description": "Realizar modificações de valores de variáveis visando obter conclusões distintas ou identificar comportamentos diferentes para o problema proposto pela atividade."
-  },
-  {
-      "id": "65e71a9b6b58df0b9764fd18",
-      "title": "Paralelismo",
-      "description": "Possibilitar que alguns procedimentos da resolução do problema proposto possam ser realizados simultaneamente ou em cooperação entre os envolvidos. É necessário dividir o problema em partes menores para que seja possível paralelizar."
   }
 ]
