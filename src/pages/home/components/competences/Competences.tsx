@@ -33,8 +33,8 @@ const Competences: FC<CompetencesProps>  = ({ competences }) => {
         <ChevronIcon name="left"/>
       </button>
       <div className="competences-context">
-        {caroussel.map(competence => (
-          <Competence key={competence.id} competence={competence}/>
+        {caroussel.map((competence, index) => (
+          <Competence key={index} competence={competence}/>
         ))}
       </div>
       <button className="next-btn" onClick={next}>

@@ -1,4 +1,8 @@
-module.exports = {
+const nextJest = require('next/jest')
+
+const createJestConfig = nextJest({ dir: './' })
+
+const customJestConfig = {
   preset: 'ts-jest',
   verbose: true,
   testEnvironment: 'jsdom',
@@ -12,5 +16,8 @@ module.exports = {
   },
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
-  }
-};
+  },
+}
+
+module.exports = createJestConfig(customJestConfig)
+
