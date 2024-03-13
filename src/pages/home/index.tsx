@@ -22,7 +22,7 @@ const Home = ({ competences, isEmpty }: HomeProps) => {
 
 export async function getServerSideProps() {
   const competences: CompetencesType =
-    await fetch('http://localhost:8080/api/competences')
+    await fetch(`${process.env.BASE_API_URL}/api/competences`)
     .then(res => res.json())
     .catch(() => []);
 
