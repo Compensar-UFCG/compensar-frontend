@@ -1,0 +1,14 @@
+.create-user {
+  &_container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 400px;
+  }
+
+  &_context {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
