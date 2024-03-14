@@ -1,8 +1,9 @@
 import { FC, useState } from "react";
 import { Controller } from "react-hook-form"
 import { useRouter } from "next/router";
-import { useFormCreateUser } from "./hooks/useFormCreateUser"
+
 import { useTryCreateUserAccount } from "./hooks/useTryCreateUserAccount";
+import { useFormCreateAccount } from "./hooks/useFormCreateAccount";
 
 import { TextField, Button } from "@mui/material";
 import SnackBarCustom from "@components/atoms/SnackBar";
@@ -10,14 +11,14 @@ import SnackBarCustom from "@components/atoms/SnackBar";
 import { AlertType } from "@components/atoms/typings";
 import { UserForm } from "@/app/interfaces/user.types";
 
-const CreateUserForm: FC = () => {
+const CreateAccountForm: FC = () => {
   const [disabledBtn, setDisabledBtn] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [typeSnackbar, setTypeSnackbar] = useState<AlertType>("success");
 
   const router = useRouter();
-  const { control, handleSubmit } = useFormCreateUser();
+  const { control, handleSubmit } = useFormCreateAccount();
   const { isSuccess, tryCreateUserAccount } = useTryCreateUserAccount();
 
   const setShowSnackbar = (isSuccess: boolean) => {
@@ -122,4 +123,4 @@ const CreateUserForm: FC = () => {
   )
 }
 
-export default CreateUserForm;
+export default CreateAccountForm;

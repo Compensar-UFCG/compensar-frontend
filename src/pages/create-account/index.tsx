@@ -1,5 +1,6 @@
-import CreateUserForm from '@/app/components/pages/create-account/CreateUserForm';
 import './styles.scss';
+
+import CreateAccountForm from '@components/pages/create-account/CreateAccountForm';
 import { Typography } from '@mui/material';
 
 const CreateUser = () => {
@@ -8,7 +9,7 @@ const CreateUser = () => {
       <Typography variant="h2" component="h2">
         Crie sua conta
       </Typography>
-      <CreateUserForm/>
+      <CreateAccountForm/>
     </main>
   );
 };
