@@ -1,0 +1,13 @@
+@import '@styles/global.scss';
+@import '@components/pages/create-account/styles.scss';
+
+.create-user {
+  &_main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+}
