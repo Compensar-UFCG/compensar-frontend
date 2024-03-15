@@ -1,14 +1,18 @@
-.create-user {
+.create-account {
   &_container {
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    width: 400px;
+    gap: $space-2;
   }
 
   &_context {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: $space;
+  }
+
+  &_username-email {
+    display: flex;
+    gap: $space;
   }
 }
