@@ -5,8 +5,12 @@ import { useRouter } from "next/router";
 import { useTryCreateUserAccount } from "./hooks/useTryCreateUserAccount";
 import { useFormCreateAccount } from "./hooks/useFormCreateAccount";
 
-import { TextField, Button } from "@mui/material";
+import { Button, InputAdornment, IconButton } from "@mui/material";
 import SnackBarCustom from "@components/atoms/SnackBar";
+import Input from "@components/atoms/Input";
+
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import { AlertType } from "@components/atoms/typings";
 import { UserForm } from "@/app/interfaces/user.types";
@@ -16,6 +20,9 @@ const CreateAccountForm: FC = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [typeSnackbar, setTypeSnackbar] = useState<AlertType>("success");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
 
   const router = useRouter();
   const { control, handleSubmit } = useFormCreateAccount();
@@ -43,51 +50,32 @@ const CreateAccountForm: FC = () => {
 
   return (
     <form
-      className="create-user_container"
+      className="create-account_container"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="create-user_context">
-        <Controller
-          name="name"
+      <div className="create-account_context">
+      <Controller
+          name="email"
           control={control}
           defaultValue=""
           render={({ field, formState: { errors } }) => (
-            <TextField
-              id="standard-basic"
-              label="Seu nome"
-              variant="standard"
-              error={!!errors.name?.message}
-              helperText={errors.name?.message}
+            <Input
+              label="Seu e-mail"
+              showError={!!errors.email?.message}
+              errorMessage={errors.email?.message}
               {...field}
-            />
-          )}
+          />
+        )}
         />
         <Controller
           name="username"
           control={control}
           defaultValue=""
           render={({ field, formState: { errors } }) => (
-            <TextField
-              id="standard-basic"
+            <Input
               label="Seu nome de usuário"
-              variant="standard"
-              error={!!errors.username?.message}
-              helperText={errors.username?.message}
-              {...field}
-            />
-          )}
-        />
-        <Controller
-          name="email"
-          control={control}
-          defaultValue=""
-          render={({ field, formState: { errors } }) => (
-            <TextField
-              id="standard-basic"
-              label="Seu e-mail"
-              variant="standard"
-              error={!!errors.email?.message}
-              helperText={errors.email?.message}
+              showError={!!errors.username?.message}
+              errorMessage={errors.username?.message}
               {...field}
             />
           )}
@@ -97,12 +85,22 @@ const CreateAccountForm: FC = () => {
           control={control}
           defaultValue=""
           render={({ field, formState: { errors } }) => (
-            <TextField
-              id="standard-basic"
+            <Input
               label="Sua senha"
-              variant="standard"
-              error={!!errors.password?.message}
-              helperText={errors.password?.message}
+              showError={!!errors.password?.message}
+              errorMessage={errors.password?.message}
+              type={showPassword ? "text": "password"}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }}
               {...field}
             />
           )}
