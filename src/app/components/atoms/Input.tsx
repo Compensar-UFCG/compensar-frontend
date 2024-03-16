@@ -1,5 +1,6 @@
+import { forwardRef } from "react";
+
 import { TextField, TextFieldProps } from "@mui/material";
-import { FC } from "react";
 
 type InputProps = TextFieldProps & {
   label: string;
@@ -7,17 +8,19 @@ type InputProps = TextFieldProps & {
   errorMessage?: string
 }
 
-const Input: FC<InputProps> = ({ label, showError, errorMessage, ...props}) => {
+const Input = forwardRef<HTMLInputElement, InputProps>(({ label, showError, errorMessage, ...props}, ref) => {
   return (
     <TextField
       {...props}
-      id="outlined-basic"
       label={label}
       error={showError}
       helperText={errorMessage}
       variant="outlined"
+      ref={ref}
     />
   )
-}
+})
+
+Input.displayName = "Input"
 
 export default Input;
