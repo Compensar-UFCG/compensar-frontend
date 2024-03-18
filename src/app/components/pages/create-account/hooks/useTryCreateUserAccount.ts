@@ -19,7 +19,7 @@ export const useTryCreateUserAccount = ({ setSnackbar }: useTryCreateUserAccount
       if(ok) {
         setSnackbar(true);
         setTimeout(() => router.replace('/login'), 3000);
-      } else setSnackbar(false, status === 409 ? `O nome de usuário ou email já estão em uso` : undefined);
+      } else setSnackbar(false, status === 409 ? 'O nome de usuário ou email já estão em uso' : undefined);
     }).catch(() => setSnackbar(false));
   }
 

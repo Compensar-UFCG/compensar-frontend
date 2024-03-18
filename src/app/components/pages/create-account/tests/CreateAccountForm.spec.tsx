@@ -409,4 +409,33 @@ describe('Create Account - API', () => {
     expect(errorSnackbarMessage).toBeInTheDocument();
     expect(setTimeout).toHaveBeenCalled();
   });
+
+  it('renders submit a form with username or email used by another account', async () => {
+    global.fetch = jest.fn(() =>
+    Promise.resolve({ ok: false, status: 409 }),
+  ) as jest.Mock;
+    const user = userEvent.setup();
+
+    render(<CreateAccountForm/>);
+
+    const inputEmail = screen.getByLabelText('Seu e-mail');
+    const inputUsername = screen.getByLabelText('Seu nome de usuário');
+    const inputPassword = screen.getByLabelText('Sua senha');
+    const btnSubmit = screen.getByRole('button', { name: 'Criar conta' });
+
+    await user.type(inputEmail, 'valid-email@test.com');
+    await user.type(inputUsername, 'username.test');
+    await user.type(inputPassword, '@Aa12345');
+
+    expect(inputEmail).toHaveValue('valid-email@test.com');
+    expect(inputUsername).toHaveValue('username.test');
+    expect(inputPassword).toHaveValue('@Aa12345');
+
+    await user.click(btnSubmit);
+    expect(btnSubmit).toBeDisabled();
+
+    const errorSnackbarMessage = await screen.findByText('O nome de usuário ou email já estão em uso');
+    expect(errorSnackbarMessage).toBeInTheDocument();
+    expect(setTimeout).toHaveBeenCalled();
+  });
 });
