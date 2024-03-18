@@ -1,0 +1,13 @@
+.create-account {
+  &_container {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+  }
+
+  &_context {
+    display: flex;
+    flex-direction: column;
+    gap: $space;
+  }
+}
