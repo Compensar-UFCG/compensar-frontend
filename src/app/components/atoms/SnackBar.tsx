@@ -21,7 +21,6 @@ const SnackBarCustom: FC<SnackBarCustomProps> = ({ open, message, type, onClose 
         onClose={onClose}
         severity={type}
         variant="filled"
-        sx={{ width: '100%' }}
       >
         {message}
       </Alert>
