@@ -1,9 +1,12 @@
-import { useState } from "react";
-
 import { UserForm } from "@/app/interfaces/user.types";
+import { useRouter } from "next/router";
 
-export const useTryCreateUserAccount = () => {
-  const [isSuccess, setIsSuccess] = useState(false);
+interface useTryCreateUserAccountProps {
+  setSnackbar: (isSuccess: boolean) => void
+}
+
+export const useTryCreateUserAccount = ({ setSnackbar }: useTryCreateUserAccountProps) => {
+  const router = useRouter();
 
   const tryCreateUserAccount = async (userForm: UserForm) => {
     fetch('api/users', {
@@ -12,14 +15,16 @@ export const useTryCreateUserAccount = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userForm),
-    }).then(res => {
-      if(res.ok) setIsSuccess(true)
-    });
+    }).then(({ ok }) => {
+      if(ok) {
+        setSnackbar(true);
+        setTimeout(() => router.replace('/login'), 3000);
+      } else setSnackbar(false);
+    }).catch(() => setSnackbar(false));
   }
 
   return {
-    tryCreateUserAccount,
-    isSuccess
+    tryCreateUserAccount
   };
 }
 

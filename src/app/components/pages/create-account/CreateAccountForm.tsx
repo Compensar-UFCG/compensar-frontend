@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
 import { Controller } from "react-hook-form"
-import { useRouter } from "next/router";
 
 import { useTryCreateUserAccount } from "./hooks/useTryCreateUserAccount";
 import { useFormCreateAccount } from "./hooks/useFormCreateAccount";
@@ -23,11 +22,7 @@ const CreateAccountForm: FC = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword(!showPassword);
-
-  const router = useRouter();
-  const { control, handleSubmit } = useFormCreateAccount();
-  const { isSuccess, tryCreateUserAccount } = useTryCreateUserAccount();
-
+  
   const setShowSnackbar = (isSuccess: boolean) => {
     setOpenSnackbar(true);
     if(isSuccess) {
@@ -39,13 +34,13 @@ const CreateAccountForm: FC = () => {
     }
   }
 
+  const { control, handleSubmit } = useFormCreateAccount();
+  const { tryCreateUserAccount } = useTryCreateUserAccount({ setSnackbar: setShowSnackbar });
+
   const onSubmit = async (userForm: UserForm) => {
     setDisabledBtn(true);
     tryCreateUserAccount(userForm);
-    
-    setShowSnackbar(isSuccess);
-    if(isSuccess) setTimeout(() => router.replace('/login'), 3000);
-    setTimeout(() =>  setDisabledBtn(false), 4000);
+    setTimeout(() =>  setDisabledBtn(false), 3000);
   }
 
   return (
