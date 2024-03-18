@@ -23,13 +23,13 @@ const CreateAccountForm: FC = () => {
 
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   
-  const setShowSnackbar = (isSuccess: boolean) => {
+  const setShowSnackbar = (isSuccess: boolean, message?: string) => {
     setOpenSnackbar(true);
     if(isSuccess) {
       setSnackbarMessage("Sua conta foi criada com sucesso");
       setTypeSnackbar("success");
     } else {
-      setSnackbarMessage("Ocorreu um erro ao criar conta");
+      setSnackbarMessage(message || "Ocorreu um erro ao criar conta");
       setTypeSnackbar("error");
     }
   }
