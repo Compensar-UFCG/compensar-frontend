@@ -1,4 +1,12 @@
 @import '@styles/global.scss';
+@import '@components/organisms/styles.scss';
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space;
+}
 
 .section {
   &-competences {
