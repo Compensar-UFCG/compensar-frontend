@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import { Competence as CompetenceItem } from "@app/interfaces/competence.types";
 import { Avatar, Box, Typography } from "@mui/material";
+import { getLittleDescription } from "./utils";
 
 interface CompetenceProps  {
   competence: CompetenceItem
@@ -9,7 +10,7 @@ interface CompetenceProps  {
 
 const Competence: FC<CompetenceProps>  = ({ competence }) => {
   const { title, description } = competence;
-  const littleDescription = `${description.slice(0,155)}...`
+  const littleDescription = getLittleDescription(description)
 
   return (
     <Box sx={{
@@ -20,7 +21,7 @@ const Competence: FC<CompetenceProps>  = ({ competence }) => {
       gap: '8px',
       width: '260px'
     }}>
-      <Avatar alt="competence" src="https://i.pravatar.cc/300" sx={{ width: 64, height: 64 }}/>
+      <Avatar alt="competence-image" src="https://i.pravatar.cc/300" sx={{ width: 64, height: 64 }}/>
       <Box sx={{
         display: 'flex',
         flexDirection: 'column',
