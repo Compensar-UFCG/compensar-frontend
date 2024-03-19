@@ -1,28 +1,26 @@
 'use client'
-import { Button, Typography } from "@mui/material";
-import { useRouter } from 'next/navigation'
+import './styles.scss';
+
+import ThemeContainer from "./components/templates/ThemeContainer";
+import Header from "./components/pages/homepage/Header";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import CompetencesContainer from '@components/organisms/competences';
 
 export default function Home() {
-  const router = useRouter();
-  const redirectToCreateAccountPage = () => {
-    router.push('/create-account');
-  }
-  const redirectToLoginPage = () => {
-    router.push('/login')
-  }
+  const queryClient = new QueryClient()
+
   return (
-    <main>
-      <Typography variant="h1" component="h2">
-        Home Page
-      </Typography>
-      <Button
-        variant="contained"
-        onClick={redirectToCreateAccountPage}
-      >Criar conta</Button>
-      <Button
-        variant="contained"
-        onClick={redirectToLoginPage}
-      >Login</Button>
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <ThemeContainer>
+        <>
+          <Header/>
+          <main>
+            <CompetencesContainer />
+          </main>
+          <footer>
+          </footer>
+        </>
+      </ThemeContainer>
+    </QueryClientProvider>
   );
 }

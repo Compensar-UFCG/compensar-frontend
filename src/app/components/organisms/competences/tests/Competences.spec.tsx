@@ -2,13 +2,14 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import Competences from '../Competences';
 import competencesMock from './mocks/competencesMock.json';
+import { getLittleDescription } from '../utils';
 
 describe('Competences component', () => {
   it.each(competencesMock.slice(0, 4))('render the first four elements', ({ title, description}) => {
     render(<Competences competences={competencesMock} />);
     
     const titleElement = screen.getByText(title);
-    const descriptionElement = screen.getByText(description);
+    const descriptionElement = screen.getByText(getLittleDescription(description));
 
     expect(titleElement).toBeInTheDocument();
     expect(descriptionElement).toBeInTheDocument();
@@ -18,7 +19,7 @@ describe('Competences component', () => {
     render(<Competences competences={competencesMock} />);
     
     const titleElement = screen.queryByText(competencesMock[4].title);
-    const descriptionElement = screen.queryByText(competencesMock[4].description);
+    const descriptionElement = screen.queryByText(getLittleDescription(competencesMock[4].description));
 
     expect(titleElement).not.toBeInTheDocument();
     expect(descriptionElement).not.toBeInTheDocument();
@@ -33,14 +34,14 @@ describe('Competences component', () => {
 
     //Remove first element to add next element in final the list
     const titleFirsElement = screen.queryByText(competencesMock[0].title);
-    const descriptionFirstElement = screen.queryByText(competencesMock[0].description);
+    const descriptionFirstElement = screen.queryByText(getLittleDescription(competencesMock[0].description));
 
     expect(titleFirsElement).not.toBeInTheDocument();
     expect(descriptionFirstElement).not.toBeInTheDocument();
 
     //Add fourth element in final the list
     const titleElement = await screen.findByText(competencesMock[4].title);
-    const descriptionElement = await screen.findByText(competencesMock[4].description);
+    const descriptionElement = await screen.findByText(getLittleDescription(competencesMock[4].description));
 
     expect(titleElement).toBeInTheDocument();
     expect(descriptionElement).toBeInTheDocument();
@@ -56,7 +57,7 @@ describe('Competences component', () => {
     
     //Remove first element
     const titleFirsElement = screen.queryByText(competencesMock[0].title);
-    const descriptionFirstElement = screen.queryByText(competencesMock[0].description);
+    const descriptionFirstElement = screen.queryByText(getLittleDescription(competencesMock[0].description));
 
     expect(titleFirsElement).not.toBeInTheDocument();
     expect(descriptionFirstElement).not.toBeInTheDocument();
@@ -65,7 +66,7 @@ describe('Competences component', () => {
 
     //Back to add first element
     const titleElement = await screen.findByText(competencesMock[0].title);
-    const descriptionElement = await screen.findByText(competencesMock[0].description);
+    const descriptionElement = await screen.findByText(getLittleDescription(competencesMock[0].description));
 
     expect(titleElement).toBeInTheDocument();
     expect(descriptionElement).toBeInTheDocument();
@@ -78,7 +79,7 @@ describe('Competences component', () => {
     fireEvent.click(previousBtn);
     
     const titleElement = await screen.findByText(competencesMock[0].title);
-    const descriptionElement = await screen.findByText(competencesMock[0].description);
+    const descriptionElement = await screen.findByText(getLittleDescription(competencesMock[0].description));
 
     expect(titleElement).toBeInTheDocument();
     expect(descriptionElement).toBeInTheDocument();
@@ -93,7 +94,7 @@ describe('Competences component', () => {
     fireEvent.click(nextBtn);
     
     const titleElement = await screen.findByText(competencesMock[4].title);
-    const descriptionElement = await screen.findByText(competencesMock[4].description);
+    const descriptionElement = await screen.findByText(getLittleDescription(competencesMock[4].description));
 
     expect(titleElement).toBeInTheDocument();
     expect(descriptionElement).toBeInTheDocument();

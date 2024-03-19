@@ -1,5 +1,5 @@
 import './styles.scss';
-import Competences from "@components/pages/competences/Competences";
+import Competences from "@components/organisms/competences/Competences";
 import { Competences as CompetencesType } from '@app/interfaces/competence.types';
 
 interface HomeProps {

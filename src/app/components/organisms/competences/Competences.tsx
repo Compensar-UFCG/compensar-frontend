@@ -1,8 +1,9 @@
 import { FC, useState } from "react";
 import { Competences as CompetenceList } from "@app/interfaces/competence.types";
 import Competence from "./Competence";
-import ChevronIcon from "@components/atoms/ChevronIcon";
-
+import { Box, Container, IconButton } from "@mui/material";
+import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
+import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 interface CompetencesProps {
   competences: CompetenceList
 }
@@ -28,19 +29,19 @@ const Competences: FC<CompetencesProps>  = ({ competences }) => {
   }
   
   return (
-    <div className="competences-container">
-      <button className="prev-btn" onClick={previous}>
-        <ChevronIcon name="left"/>
-      </button>
-      <div className="competences-context">
+    <Container sx={{ display: 'flex', alignItems: 'center'}}>
+      <IconButton onClick={previous}>
+        <ChevronLeftRoundedIcon fontSize="large"/>
+      </IconButton>
+      <Box sx={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
         {caroussel.map((competence, index) => (
           <Competence key={index} competence={competence}/>
         ))}
-      </div>
-      <button className="next-btn" onClick={next}>
-        <ChevronIcon name="right"/>
-      </button>
-    </div>
+      </Box>
+      <IconButton onClick={next}>
+        <ChevronRightRoundedIcon fontSize="large"/>
+      </IconButton>
+    </Container>
   )
 }
 
