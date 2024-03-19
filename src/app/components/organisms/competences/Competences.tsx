@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
 import { Competences as CompetenceList } from "@app/interfaces/competence.types";
 import Competence from "./Competence";
-import ChevronIcon from "@components/atoms/ChevronIcon";
 import { Box, Container, IconButton } from "@mui/material";
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
