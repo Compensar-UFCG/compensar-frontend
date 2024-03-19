@@ -18,6 +18,36 @@ const theme = createTheme({
     },
   },
   typography: {
+    h1: {
+      color: '#70727b'
+    },
+    h2: {
+      color: '#70727b'
+    },
+    h3: {
+      color: '#70727b'
+    },
+    h4: {
+      color: '#70727b'
+    },
+    h5: {
+      color: '#70727b'
+    },
+    h6: {
+      color: '#70727b',
+    },
+    subtitle1: {
+      color: '#70727b',
+    },
+    subtitle2: {
+      color: '#70727b',
+    },
+    body1: {
+      color: '#70727b',
+    },
+    body2: {
+      color: '#70727b',
+    },
     button: {
       color: '#e8eaf6',
     },
