@@ -1,7 +1,7 @@
 import { FC } from "react";
-import Image from 'next/image'
 
 import { Competence as CompetenceItem } from "@app/interfaces/competence.types";
+import { Avatar, Box, Typography } from "@mui/material";
 
 interface CompetenceProps  {
   competence: CompetenceItem
@@ -9,21 +9,29 @@ interface CompetenceProps  {
 
 const Competence: FC<CompetenceProps>  = ({ competence }) => {
   const { title, description } = competence;
+  const littleDescription = `${description.slice(0,155)}...`
 
   return (
-    <div className="competence-container">
-      <Image
-        className="competence-image"
-        src="https://i.pravatar.cc/300"
-        alt={title}
-        width={100}
-        height={100}
-      />
-      <div className="competence-context">
-        <h3 className="competence-title">{title}</h3>
-        <article>{description}</article>
-      </div>
-    </div>
+    <Box sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '8px',
+      width: '260px'
+    }}>
+      <Avatar alt="competence" src="https://i.pravatar.cc/300" sx={{ width: 64, height: 64 }}/>
+      <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '4px'
+      }}>
+        <Typography variant="subtitle1" sx={{ textAlign: 'center'}}>{title}</Typography>
+        <Typography variant="body2" sx={{ textAlign: 'center'}}>{littleDescription}</Typography>
+      </Box>
+    </Box>
   )
 }
 
