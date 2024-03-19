@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import competencesMock from './tests/mocks/competencesMock.json';
 import Home, { getServerSideProps} from '@/pages/home';
+import { getLittleDescription } from './utils';
 
 describe('Home', () => {
   describe('Competences section', () => {
@@ -14,7 +15,7 @@ describe('Home', () => {
       
       const titleSectionCompetences = screen.getByText('Competências')
       const titleElement = screen.getByText(title);
-      const descriptionElement = screen.getByText(description);
+      const descriptionElement = screen.getByText(getLittleDescription(description));
       
       expect(titleSectionCompetences).toBeInTheDocument();
       expect(titleElement).toBeInTheDocument();
