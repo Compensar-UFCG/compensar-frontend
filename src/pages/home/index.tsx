@@ -1,11 +1,13 @@
 import './styles.scss';
-import { Competences as CompetencesType } from '@app/interfaces/competence.types';
-import ThemeContainer from '@/app/components/templates/ThemeContainer';
-import { Questions } from '@/app/interfaces/question.types';
-import QuestionList from '@/app/components/pages/home';
-import Header from '@/app/components/pages/homepage/Header';
-import Competences from '@/app/components/organisms/competences/Competences';
+import ThemeContainer from '@components/templates/ThemeContainer';
+
+import QuestionList from '@components/pages/home/questions';
+import Header from '@components/pages/homepage/Header';
+import Competences from '@components/organisms/competences/Competences';
 import { Container } from '@mui/material';
+
+import { Questions } from '@app/interfaces/question.types';
+import { Competences as CompetencesType } from '@app/interfaces/competence.types';
 
 interface HomeProps {
   competences: CompetencesType;
