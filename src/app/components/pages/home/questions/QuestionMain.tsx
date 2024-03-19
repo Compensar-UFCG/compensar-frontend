@@ -19,12 +19,12 @@ const QuestionMain: FC<Omit<QuestionProps, 'id' | 'title' | 'font' | 'year' | 't
     <CardContent>
       <Typography>Problema</Typography>
       <Typography variant="body2" color="text.secondary" paragraph>{statement}</Typography>
-      {/* {image && (<CardMedia
+      {image && (<CardMedia
         component="img"
         height="300"
         image={image}
         alt="question image"
-      />)} */}
+      />)}
       {alternatives && (
         <div>
           <Typography>Alternativas</Typography>
