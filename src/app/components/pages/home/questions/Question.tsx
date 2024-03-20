@@ -13,6 +13,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandButton from "@components/atoms/ExpandButton";
 import QuestionHeader from "./QuestionHeader";
 import QuestionMain from "./QuestionMain";
+import CompetenceTagList from "./CompetenceTagList";
 
 const Question: FC<QuestionProps> = ({
   title,
