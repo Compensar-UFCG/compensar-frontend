@@ -1,4 +1,5 @@
 import { UUID } from "crypto";
+import { Competences } from "./competence.types";
 
 export type Font = "enem" | "pisa" | "olimpiadas" | "school" | "other"
 export type Alternatives = string[];
@@ -13,6 +14,7 @@ export interface Question {
   year?: number;
   alternatives?: Alternatives;
   response: string;
+  competences: Competences;
 }
 
 export type Questions = Question[];
