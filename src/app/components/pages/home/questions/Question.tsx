@@ -1,7 +1,7 @@
 import { Question as QuestionProps } from "@/app/interfaces/question.types";
 import { FC, useState } from "react";
 
-import { Card, CardContent, CardActions, CardMedia } from '@mui/material';
+import { Card, CardContent, CardActions } from '@mui/material';
 
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -10,7 +10,6 @@ import Typography from '@mui/material/Typography';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ShareIcon from '@mui/icons-material/Share';
 
-import { alphabet } from "./utils";
 import ExpandButton from "@components/atoms/ExpandButton";
 import QuestionHeader from "./QuestionHeader";
 import QuestionMain from "./QuestionMain";
@@ -23,7 +22,8 @@ const Question: FC<QuestionProps> = ({
   type,
   image,
   alternatives,
-  response
+  response,
+  competences
 }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -42,6 +42,7 @@ const Question: FC<QuestionProps> = ({
       <Collapse in={!expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography variant="body2" color="text.secondary">{`${statement.slice(0, 220)}...`}</Typography>
+          <CompetenceTagList competences={competences}/>
         </CardContent>
       </Collapse>
       <CardActions disableSpacing>
