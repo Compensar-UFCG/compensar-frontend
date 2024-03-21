@@ -1,0 +1,30 @@
+@import '@styles/global.scss';
+@import '@components/organisms/login-form/styles.scss';
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login {
+  &_form {
+    display: flex;
+    flex-direction: column;
+    width: 32vmax;
+    padding: $padding-cards;
+    margin-top: 4vmax;
+    gap: $space-3;
+  }
+  &_header-section {
+    display: flex;
+    flex-direction: column;
+    gap: $space-title-subtitle;
+  }
+  &_create-account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
