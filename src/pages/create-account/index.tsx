@@ -1,4 +1,4 @@
-import CreateAccountFormPage from "@/app/components/pages/create-account"
+import CreateAccountFormPage from "@components/pages/create-account"
 
 const View = () => {
   return <CreateAccountFormPage />

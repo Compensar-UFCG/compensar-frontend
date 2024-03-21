@@ -1,5 +1,5 @@
 import { FC } from "react";
-import HomePage from "@app/components/pages/home";
+import HomePage from "@components/pages/home";
 
 import { Competences } from "@app/interfaces/competence.types";
 import { Questions } from "@app/interfaces/question.types";
