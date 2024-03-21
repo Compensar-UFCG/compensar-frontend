@@ -5,7 +5,7 @@ import { CardHeader, Avatar } from '@mui/material';
 
 import { FontColor } from "./utils";
 
-const QuestionHeader: FC<Omit<QuestionProps, 'id' | 'statement' | 'image' | 'alternatives' | 'response'>> = ({
+const QuestionHeader: FC<Omit<QuestionProps, 'id' | 'statement' | 'image' | 'alternatives' | 'response' | 'competences'>> = ({
   title,
   font,
   year,
