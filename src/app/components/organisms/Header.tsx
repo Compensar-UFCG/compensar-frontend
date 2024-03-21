@@ -7,8 +7,8 @@ import NavBar from "@components/organisms/NavBar";
 const Header: FC = () => {
   const router = useRouter();
 
-  const redirectToCreateAccountPage = () => {
-    router.push('/create-account');
+  const redirectToLoginPage = () => {
+    router.push('/login');
   }
   return (
     <header>
@@ -24,7 +24,7 @@ const Header: FC = () => {
         }}>
           <Typography variant="subtitle1" gutterBottom>The making of a Marvel prototype</Typography>
           <Typography variant="h1" gutterBottom>Compensar</Typography>
-          <Button variant="contained" onClick={redirectToCreateAccountPage}>CRIAR CONTA</Button>
+          <Button variant="contained" onClick={redirectToLoginPage}>Acesse agora</Button>
         </Box>
       </Container>
     </header>
