@@ -3,7 +3,7 @@ import CompetenceTag from "./CompetenceTag";
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 
 import { Competences } from "@/app/interfaces/competence.types";
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 
 interface CompetenceTagListProps {
   competences: Competences
@@ -18,6 +18,7 @@ const CompetenceTagList: FC<CompetenceTagListProps> = ({ competences }) => {
         gap: '16px'
       }}
     >
+      <Divider orientation="horizontal" />
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <LightbulbIcon color="primary"/>
         <Typography variant="body2" color="text.secondary">Competências do Pensamento Computacional</Typography>
