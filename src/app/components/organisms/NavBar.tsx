@@ -7,12 +7,8 @@ import { cyan } from '@mui/material/colors';
 const NavBar: FC = () => {
   const router = useRouter();
 
-  const redirectToCreateAccountPage = () => {
-    router.push('/create-account');
-  }
-
   const redirectToLoginPage = () => {
-    router.push('/home')
+    router.push('/login')
   }
 
   return (
@@ -27,11 +23,6 @@ const NavBar: FC = () => {
         <Typography variant="subtitle1">Compensar</Typography>
       </Box>
       <Box>
-        <Button
-          variant="text"
-          size="small"
-          onClick={redirectToCreateAccountPage}
-        >Criar conta</Button>
         <Button
           variant="text"
           size="small"
