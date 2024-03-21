@@ -1,13 +1,30 @@
-.create-account {
-  &_container {
-    display: flex;
-    flex-direction: column;
-    gap: $space-2;
-  }
+@import '@styles/global.scss';
+@import '@components/organisms/create-account/styles.scss';
 
-  &_context {
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.create-account {
+  &_form {
     display: flex;
     flex-direction: column;
-    gap: $space;
+    width: 32vmax;
+    padding: $padding-cards;
+    margin-top: 4vmax;
+    gap: $space-3;
+  }
+  &_header-section {
+    display: flex;
+    flex-direction: column;
+    gap: $space-title-subtitle;
+  }
+  &_login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
