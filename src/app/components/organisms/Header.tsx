@@ -2,7 +2,6 @@ import { FC } from "react";
 import { useRouter } from "next/navigation";
 
 import { Box, Button, Container, Typography } from "@mui/material";
-import NavBar from "@components/organisms/NavBar";
 
 const Header: FC = () => {
   const router = useRouter();
@@ -15,7 +14,6 @@ const Header: FC = () => {
       <Container sx={{
         padding: '12px 16px 42px',
       }}>
-        <NavBar/>
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',
