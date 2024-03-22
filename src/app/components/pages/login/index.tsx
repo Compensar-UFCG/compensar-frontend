@@ -7,6 +7,7 @@ import { Button, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import LoginForm from "../../organisms/login-form/LoginForm";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ProtectedProvider } from '@contexts/ProtectedProvider';
 
 const LoginPage: FC = () => {
   const queryClient = new QueryClient()
@@ -17,6 +18,7 @@ const LoginPage: FC = () => {
   }
 
   return (
+    <ProtectedProvider>
     <QueryClientProvider client={queryClient}>
       <ThemeContainer>
         <main>
@@ -43,6 +45,7 @@ const LoginPage: FC = () => {
         </main>
       </ThemeContainer>
     </QueryClientProvider>
+    </ProtectedProvider>
   )
 }
 
