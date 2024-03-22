@@ -13,8 +13,6 @@ const QuestionMain: FC<Omit<QuestionProps, 'id' | 'title' | 'font' | 'year' | 't
   alternatives,
   response
 }) => {
-  console.log(image);
-  
   return (
     <CardContent>
       <Typography>Problema</Typography>
