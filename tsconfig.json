@@ -26,18 +26,21 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
       "@app/*": [
         "./src/app/*"
       ],
       "@components/*": [
         "./src/app/components/*"
       ],
+      "@interfaces/*": [
+        "./src/app/interfaces/*"
+      ],
       "@styles/*": [
         "./src/app/styles/*"
-      ]
+      ],
+      "@api/*": [
+        "./src/pages/api/*"
+      ],
     }
   },
   "include": [
