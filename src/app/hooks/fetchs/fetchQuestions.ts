@@ -1,4 +1,4 @@
-import checkIsSessionExpiredAndRemoveToken from "@app/utils/checkIsSessionExpiredAndRemoveToken";
+import { checkIsSessionExpiredAndRemoveToken } from "@app/utils/session";
 
 export default async function fetchQuestions(token: string) {
   try {
