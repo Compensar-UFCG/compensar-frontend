@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 import { LoginForm } from "../typings";
 import { LoginSubmitForm } from "@app/interfaces/login.types";
+import { useProtectedSessionContext } from "@contexts/ProtectedProvider";
 
 interface useTryLoginProps {
   setSnackbar: (message?: string) => void
@@ -29,13 +30,18 @@ const login = async (loginSubmitForm: LoginSubmitForm) => {
 
 export const useTryLogin = ({ setSnackbar }: useTryLoginProps) => {
   const router = useRouter();
+  const { saveSessionData } = useProtectedSessionContext()
 
   const {mutate, ...props } = useMutation({
     mutationKey: ['login'],
     mutationFn: login,
-    onSuccess: ({ ok, status }) => {
-      if(ok) router.replace('/home')
-      else setSnackbar(status === 401 ? 'O login ou senha incorretos' : undefined);
+    onSuccess: async (res) => {
+      if(res.ok) {
+        const responseData = await res.json();
+        saveSessionData(responseData?.token);
+        router.push('/home')
+      }
+      else setSnackbar(res.status === 401 ? 'O login ou senha incorretos' : undefined);
     }
   })
 
