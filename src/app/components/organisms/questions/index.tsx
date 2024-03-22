@@ -1,12 +1,12 @@
-import { useProtectedSessionContext } from "@contexts/ProtectedProvider";
-import { List, ListItem, Skeleton } from "@mui/material";
 import { FC } from "react";
+
+import { List, ListItem, Skeleton } from "@mui/material";
 import Question from "./Question";
+
 import useQueryQuestions from "@hooks/useQueryQuestions";
 
 const QuestionList: FC = () => {
-  const { token } = useProtectedSessionContext();
-  const { questions, isLoading } = useQueryQuestions(token);
+  const { questions, isLoading } = useQueryQuestions();
 
   if(isLoading) return <Skeleton variant="rectangular" sx={{ height: '90vh', margin: '16px 0' }} />
 
