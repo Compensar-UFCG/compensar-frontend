@@ -13,7 +13,9 @@ export default async function users(
         },
         body: JSON.stringify(req.body),
       });
-      res.status(response.status).json(response.body)
+      const responseData = await response.json();
+
+      res.status(response.status).json(responseData)
     } catch (error: any) {
       res.status(error.status).json(error.body)
     }
