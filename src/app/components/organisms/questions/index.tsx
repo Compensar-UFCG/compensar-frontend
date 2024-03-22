@@ -1,13 +1,15 @@
-import { Questions } from "@/app/interfaces/question.types";
-import { List, ListItem } from "@mui/material";
+import { useProtectedSessionContext } from "@contexts/ProtectedProvider";
+import { List, ListItem, Skeleton } from "@mui/material";
 import { FC } from "react";
 import Question from "./Question";
+import useQueryQuestions from "@hooks/useQueryQuestions";
 
-interface QuestionListProps {
-  questions: Questions
-}
+const QuestionList: FC = () => {
+  const { token } = useProtectedSessionContext();
+  const { questions, isLoading } = useQueryQuestions(token);
 
-const QuestionList: FC<QuestionListProps> = ({ questions }) => {
+  if(isLoading) return <Skeleton variant="rectangular" sx={{ height: '90vh', margin: '16px 0' }} />
+
   return (
     <List sx={{
       display: 'flex',
