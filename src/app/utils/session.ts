@@ -12,10 +12,7 @@ export const saveSessionData = (token: string) => {
 
 export const getSessionData = () => {
   if (typeof window !== 'undefined') {
-    const data = localStorage?.getItem('user-token');
-    console.log('data', data);
-    
-    if(!!data) return data
+    return localStorage?.getItem('user-token');
   }
   return null
 };
