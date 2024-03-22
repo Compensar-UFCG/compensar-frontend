@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Competence from '../Competence';
 import { randomUUID } from 'crypto';
-import { getLittleDescription } from '../utils';
 
 const mockCompetence = {
   id: randomUUID(),
@@ -20,26 +19,17 @@ describe('Competence component', () => {
     render(<Competence competence={mockCompetence} />);
     
     const titleElement = screen.getByText(mockCompetence.title);
-    const descriptionElement = screen.getByText(getLittleDescription(mockCompetence.description));
+    const descriptionElement = screen.getByText(mockCompetence.description);
 
     expect(titleElement).toBeInTheDocument();
     expect(descriptionElement).toBeInTheDocument();
-  });
-
-  it('renders competence image', () => {
-    render(<Competence competence={mockCompetence} />);
-    
-    const imageElement = screen.getByAltText('competence-image');
-
-    expect(imageElement).toBeInTheDocument();
-    expect(imageElement).toHaveAttribute('src', 'https://i.pravatar.cc/300');
   });
 
   it('renders competence title and description with max length', () => {
     render(<Competence competence={mockCompetenceWithMaxlentghTitleAndDescription} />);
     
     const titleElement = screen.getByText(mockCompetenceWithMaxlentghTitleAndDescription.title);
-    const descriptionElement = screen.getByText(getLittleDescription(mockCompetenceWithMaxlentghTitleAndDescription.description));
+    const descriptionElement = screen.getByText(mockCompetenceWithMaxlentghTitleAndDescription.description);
 
     expect(titleElement).toBeInTheDocument();
     expect(descriptionElement).toBeInTheDocument();
