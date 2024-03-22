@@ -1,4 +1,4 @@
-import { Question as QuestionProps } from "@/app/interfaces/question.types";
+import { Question as QuestionProps } from "@interfaces/question.types";
 import { FC } from "react";
 
 import { CardHeader, Avatar } from '@mui/material';

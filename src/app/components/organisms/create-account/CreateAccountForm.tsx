@@ -12,7 +12,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import { AlertType } from "@components/atoms/typings";
-import { UserForm } from "@/app/interfaces/user.types";
+import { UserForm } from "@interfaces/user.types";
 
 const CreateAccountForm: FC = () => {
   const [disabledBtn, setDisabledBtn] = useState(false);

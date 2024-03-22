@@ -1,4 +1,4 @@
-import { Competences } from "@/app/interfaces/competence.types";
+import { Competences } from "@interfaces/competence.types";
 import { useQuery } from "@tanstack/react-query"
 
 const useQueryCompetences = () => {

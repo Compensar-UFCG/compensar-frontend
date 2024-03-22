@@ -1,8 +1,8 @@
 import './styles.scss';
-import ThemeContainer from '@/app/components/templates/ThemeContainer';
+import ThemeContainer from '@components/templates/ThemeContainer';
 import { useRouter } from 'next/router';
 
-import CreateAccountForm from '@/app/components/organisms/create-account/CreateAccountForm';
+import CreateAccountForm from '@components/organisms/create-account/CreateAccountForm';
 import { Typography, Button } from '@mui/material';
 
 const CreateAccountFormPage = () => {

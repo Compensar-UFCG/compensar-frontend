@@ -1,4 +1,4 @@
-import { Question as QuestionProps } from "@/app/interfaces/question.types";
+import { Question as QuestionProps } from "@interfaces/question.types";
 import { FC, useState } from "react";
 
 import { Card, CardContent, CardActions } from '@mui/material';

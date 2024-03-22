@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { Container, Typography } from "@mui/material";
 import Competences from "./Competences";
-import useQueryCompetences from "./hooks/useQueryCompetences";
+import useQueryCompetences from "@hooks/useQueryCompetences";
 import LoadingCompetences from "./LoadingCompetences";
 
 const CompetencesContainer: FC = () => {
