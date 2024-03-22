@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import { Competence as CompetenceItem } from "@app/interfaces/competence.types";
-import { Avatar, Box, Typography } from "@mui/material";
-import { getLittleDescription } from "./utils";
+import { Avatar, Card, CardContent, CardHeader, Typography } from "@mui/material";
+import getCompetenceColor from "@/app/utils/competencesColor";
 
 interface CompetenceProps  {
   competence: CompetenceItem
@@ -10,29 +10,27 @@ interface CompetenceProps  {
 
 const Competence: FC<CompetenceProps>  = ({ competence }) => {
   const { title, description } = competence;
-  const littleDescription = getLittleDescription(description)
+  const [expanded, setExpanded] = useState(false);
+  const color = getCompetenceColor(title);
 
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
   return (
-    <Box sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: '8px',
-      width: '260px'
-    }}>
-      <Avatar alt="competence-image" src="https://i.pravatar.cc/300" sx={{ width: 64, height: 64 }}/>
-      <Box sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '4px'
-      }}>
-        <Typography variant="subtitle1" sx={{ textAlign: 'center'}}>{title}</Typography>
-        <Typography variant="body2" sx={{ textAlign: 'center'}}>{littleDescription}</Typography>
-      </Box>
-    </Box>
+    <Card sx={{ width: '360px', height: '280px' }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: color }} aria-label="recipe">
+            {title[0]}
+          </Avatar>
+        }
+        title={title}
+        subheader="Comepetência do pensamento computacional"
+      />
+      <CardContent>
+        <Typography variant="body2">{description}</Typography>
+      </CardContent>
+    </Card>
   )
 }
 

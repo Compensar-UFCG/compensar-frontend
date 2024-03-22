@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Container, Typography } from "@mui/material";
 import Competences from "./Competences";
 import useQueryCompetences from "./hooks/useQueryCompetences";
-import { Skeleton } from '@mui/material';
+import LoadingCompetences from "./LoadingCompetences";
 
 const CompetencesContainer: FC = () => {
   const { competences, isLoading, isError } = useQueryCompetences();
@@ -11,16 +11,7 @@ const CompetencesContainer: FC = () => {
   if(isError) return null;
 
   if(isLoading) return (
-    <Container sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: '24px',
-      margin: '24px 16px',
-    }}>
-      <Skeleton variant="rectangular" sx={{ width: '84vmax', height: '20vmax' }} />
-    </Container>
+    <LoadingCompetences/>
   );
 
   return (
@@ -32,7 +23,7 @@ const CompetencesContainer: FC = () => {
       gap: '24px',
       margin: '24px 16px',
     }}>
-      <Typography variant='h4' gutterBottom>Pensamento Computacional</Typography>
+      <Typography variant='h4' gutterBottom>Competências do Pensamento Computacional</Typography>
       <Competences competences={competences} />
     </Container>
   )

@@ -1,8 +1,10 @@
 @import '@styles/global.scss';
 @import '@components/organisms/styles.scss';
 
-main {
+.main_home {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: $space;
 }
