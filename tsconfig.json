@@ -26,20 +26,26 @@
       }
     ],
     "paths": {
-      "@app/*": [
-        "./src/app/*"
-      ],
       "@components/*": [
         "./src/app/components/*"
       ],
       "@interfaces/*": [
         "./src/app/interfaces/*"
       ],
+      "@contexts/*": [
+        "./src/app/contexts/*"
+      ],
+      "@hooks/*": [
+        "./src/app/hooks/*"
+      ],
       "@styles/*": [
         "./src/app/styles/*"
       ],
       "@api/*": [
         "./src/pages/api/*"
+      ],
+      "@app/*": [
+        "./src/app/*"
       ],
     }
   },
