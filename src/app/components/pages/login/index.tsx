@@ -2,7 +2,7 @@ import './styles.scss';
 
 import { FC } from "react";
 import ThemeContainer from "@components/templates/ThemeContainer";
-import { Button, Typography } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 
 import { useRouter } from "next/router";
 import LoginForm from "../../organisms/login-form/LoginForm";
@@ -14,34 +14,43 @@ const LoginPage: FC = () => {
   const router = useRouter();
 
   const redirectToCreateAccountPage = () => {
-    router.push('/login')
+    router.push('/create-account');
   }
 
   return (
     <ProtectedProvider>
     <QueryClientProvider client={queryClient}>
       <ThemeContainer>
-        <main>
-          <section className="login_form">
-            <div className="login_header-section">
-              <Typography variant="h2" component="h2" align="center">
-                Acesse sua conta
+        <main className="main_login">
+          <Container
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '32px',
+              width: '60vmax'
+            }}
+          >
+            <section className="login_form">
+              <div className="login_header-section">
+                <Typography variant="h2" component="h2" align="center">
+                  Acesse sua conta
+                </Typography>
+                <Typography variant="subtitle2" component="h2" align="center">
+                  Acesse sua conta e conheça os nossos conteúdos.
+                </Typography>
+              </div>
+            </section>
+            <LoginForm/>
+            <section className="login_create-account">
+              <Typography variant="subtitle1" component="h2" align="center">
+                Ainda não tem conta?
               </Typography>
-              <Typography variant="subtitle2" component="h2" align="center">
-                Acesse sua conta e conheça os nossos conteúdos.
-              </Typography>
-            </div>
-          </section>
-          <LoginForm/>
-          <section className="login_create-account">
-            <Typography variant="subtitle1" component="h2" align="center">
-              Ainda não tem conta?
-            </Typography>
-            <Button
-              variant="text"
-              onClick={redirectToCreateAccountPage}
-            >Crie sua conta</Button>
-          </section>
+              <Button
+                variant="text"
+                onClick={redirectToCreateAccountPage}
+              >Crie sua conta</Button>
+            </section>
+          </Container>
         </main>
       </ThemeContainer>
     </QueryClientProvider>

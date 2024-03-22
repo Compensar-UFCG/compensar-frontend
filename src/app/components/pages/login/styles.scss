@@ -1,20 +1,17 @@
 @import '@styles/global.scss';
 @import '@components/organisms/login-form/styles.scss';
 
-body {
+.main_login {
   display: flex;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
+  align-items: center;
+  height: 80vh;
 }
 
 .login {
   &_form {
     display: flex;
     flex-direction: column;
-    width: 32vmax;
-    padding: $padding-cards;
-    margin-top: 4vmax;
+    align-self: center;
     gap: $space-3;
   }
   &_header-section {
