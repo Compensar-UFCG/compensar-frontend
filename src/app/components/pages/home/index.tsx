@@ -7,6 +7,8 @@ import { ProtectedProvider } from '@contexts/ProtectedProvider';
 import QuestionList from '@components/organisms/questions';
 import HeaderHome from '@components/organisms/header-home';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Quiz from '@components/organisms/quiz';
+import { HomeProvider } from '@contexts/HomeProvider';
 
 const HomePage = () => {
   const queryClient = new QueryClient();
@@ -14,19 +16,21 @@ const HomePage = () => {
   return (
     <ProtectedProvider>
       <ThemeContainer>
-        <QueryClientProvider client={queryClient}>
-          <HeaderHome />
-          <main className="main_home-logged">
-            <Container sx={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 2fr',
-              gap: '16PX'
-            }}>
-              <>My list</>
-              <QuestionList />
-            </Container>
-          </main>
-        </QueryClientProvider>
+        <HomeProvider>
+          <QueryClientProvider client={queryClient}>
+            <HeaderHome />
+            <main className="main_home-logged">
+              <Container sx={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 2fr',
+                gap: '16PX'
+              }}>
+                <Quiz />
+                <QuestionList />
+              </Container>
+            </main>
+          </QueryClientProvider>
+        </HomeProvider>
       </ThemeContainer>
     </ProtectedProvider>
   );
