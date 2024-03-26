@@ -1,4 +1,4 @@
-import { Question as QuestionProps } from "@interfaces/question.types";
+import { Question as QuestionInterface } from "@interfaces/question.types";
 import { FC, useState } from "react";
 
 import { Card, CardContent, CardActions } from '@mui/material';
@@ -14,18 +14,25 @@ import ExpandButton from "@components/atoms/ExpandButton";
 import QuestionHeader from "./QuestionHeader";
 import QuestionMain from "./QuestionMain";
 import CompetenceTagList from "./CompetenceTagList";
+import { useHomeSessionContext } from "@contexts/HomeProvider";
 
-const Question: FC<QuestionProps> = ({
-  title,
-  statement,
-  font,
-  year,
-  type,
-  image,
-  alternatives,
-  response,
-  competences
-}) => {
+interface QuestionProps {
+  question: QuestionInterface
+}
+
+const Question: FC<QuestionProps> = ({ question }) => {
+  const {
+    title,
+    statement,
+    font,
+    year,
+    type,
+    image,
+    alternatives,
+    response,
+    competences
+  } = question;
+  const { saveMyQuestions } = useHomeSessionContext()
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -47,7 +54,7 @@ const Question: FC<QuestionProps> = ({
         </CardContent>
       </Collapse>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to list">
+        <IconButton aria-label="add to list" onClick={() => saveMyQuestions(question)}>
           <AddCircleIcon/>
         </IconButton>
         <IconButton aria-label="share">

@@ -18,7 +18,7 @@ const QuestionList: FC = () => {
     }}>
       {questions.map((question, index) =>
         <ListItem key={index} alignItems="flex-start">
-          <Question {...question}/>
+          <Question question={question}/>
         </ListItem>
       )}
     </List>
