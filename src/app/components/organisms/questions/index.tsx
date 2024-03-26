@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { List, ListItem, Skeleton } from "@mui/material";
-import Question from "./Question";
+import Question from "../../molecules/question/Question";
 
 import useQueryQuestions from "@hooks/useQueryQuestions";
 
