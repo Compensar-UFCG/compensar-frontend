@@ -11,7 +11,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { AlertType } from "@components/atoms/typings";
 import { useFormLogin } from "./hooks/useFormLogin";
 import { useTryLogin } from "./hooks/useTryLogin";
-import { LoginForm } from "./typings";
+import { LoginForm as LoginFormInterface } from "./typings";
 
 const LoginForm: FC = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -30,7 +30,7 @@ const LoginForm: FC = () => {
   const { control, handleSubmit } = useFormLogin();
   const { tryLogin, isPending } = useTryLogin({ setSnackbar: setShowSnackbar });
 
-  const onSubmit = async (loginForm: LoginForm) => tryLogin(loginForm);
+  const onSubmit = async (loginForm: LoginFormInterface) => tryLogin(loginForm);
 
   return (
     <form
