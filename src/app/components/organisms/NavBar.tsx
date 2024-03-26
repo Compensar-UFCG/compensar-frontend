@@ -3,16 +3,15 @@ import { useRouter } from "next/navigation";
 
 import { Avatar, Box, Button, Typography } from '@mui/material';
 import { cyan } from '@mui/material/colors';
+import { useProtectedSessionContext } from "@contexts/ProtectedProvider";
 
 const NavBar: FC = () => {
   const router = useRouter();
-
-  const redirectToCreateAccountPage = () => {
-    router.push('/create-account');
-  }
+  const { removeSessionData } = useProtectedSessionContext()
 
   const redirectToLoginPage = () => {
-    router.push('/home')
+    removeSessionData();
+    router.push('/')
   }
 
   return (
@@ -30,13 +29,8 @@ const NavBar: FC = () => {
         <Button
           variant="text"
           size="small"
-          onClick={redirectToCreateAccountPage}
-        >Criar conta</Button>
-        <Button
-          variant="text"
-          size="small"
           onClick={redirectToLoginPage}
-        >Login</Button>
+        >Sair</Button>
       </Box>
     </nav>
   )

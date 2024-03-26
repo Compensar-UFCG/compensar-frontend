@@ -2,7 +2,7 @@ import { FC } from "react";
 import CompetenceTag from "./CompetenceTag";
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 
-import { Competences } from "@/app/interfaces/competence.types";
+import { Competences } from "@interfaces/competence.types";
 import { Box, Divider, Typography } from "@mui/material";
 
 interface CompetenceTagListProps {

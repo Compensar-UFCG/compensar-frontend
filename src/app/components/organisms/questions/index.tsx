@@ -1,13 +1,15 @@
-import { Questions } from "@/app/interfaces/question.types";
-import { List, ListItem } from "@mui/material";
 import { FC } from "react";
+
+import { List, ListItem, Skeleton } from "@mui/material";
 import Question from "./Question";
 
-interface QuestionListProps {
-  questions: Questions
-}
+import useQueryQuestions from "@hooks/useQueryQuestions";
 
-const QuestionList: FC<QuestionListProps> = ({ questions }) => {
+const QuestionList: FC = () => {
+  const { questions, isLoading } = useQueryQuestions();
+
+  if(isLoading) return <Skeleton variant="rectangular" sx={{ height: '90vh', margin: '16px 0' }} />
+
   return (
     <List sx={{
       display: 'flex',

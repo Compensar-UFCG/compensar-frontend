@@ -1,9 +1,6 @@
 import { FC, useState } from "react";
 import { Controller } from "react-hook-form"
 
-import { useTryCreateUserAccount } from "./hooks/useTryCreateUserAccount";
-import { useFormCreateAccount } from "./hooks/useFormCreateAccount";
-
 import { Button, InputAdornment, IconButton } from "@mui/material";
 import SnackBarCustom from "@components/atoms/SnackBar";
 import Input from "@components/atoms/Input";
@@ -12,10 +9,11 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import { AlertType } from "@components/atoms/typings";
-import { UserForm } from "@interfaces/user.types";
+import { useFormLogin } from "./hooks/useFormLogin";
+import { useTryLogin } from "./hooks/useTryLogin";
+import { LoginForm as LoginFormInterface } from "./typings";
 
-const CreateAccountForm: FC = () => {
-  const [disabledBtn, setDisabledBtn] = useState(false);
+const LoginForm: FC = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [typeSnackbar, setTypeSnackbar] = useState<AlertType>("success");
@@ -23,54 +21,32 @@ const CreateAccountForm: FC = () => {
 
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   
-  const setShowSnackbar = (isSuccess: boolean, message?: string) => {
+  const setShowSnackbar = (message?: string) => {
     setOpenSnackbar(true);
-    if(isSuccess) {
-      setSnackbarMessage("Sua conta foi criada com sucesso");
-      setTypeSnackbar("success");
-    } else {
-      setSnackbarMessage(message || "Ocorreu um erro ao criar conta");
-      setTypeSnackbar("error");
-    }
+    setSnackbarMessage(message || "Ocorreu um erro tentar logar na conta");
+    setTypeSnackbar("error")
   }
 
-  const { control, handleSubmit } = useFormCreateAccount();
-  const { tryCreateUserAccount } = useTryCreateUserAccount({ setSnackbar: setShowSnackbar });
+  const { control, handleSubmit } = useFormLogin();
+  const { tryLogin, isPending } = useTryLogin({ setSnackbar: setShowSnackbar });
 
-  const onSubmit = async (userForm: UserForm) => {
-    setDisabledBtn(true);
-    tryCreateUserAccount(userForm);
-    setTimeout(() =>  setDisabledBtn(false), 3000);
-  }
+  const onSubmit = async (loginForm: LoginFormInterface) => tryLogin(loginForm);
 
   return (
     <form
-      className="create-account_container"
+      className="login_container"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="create-account_context">
-      <Controller
-          name="email"
-          control={control}
-          defaultValue=""
-          render={({ field, formState: { errors } }) => (
-            <Input
-              label="Seu e-mail"
-              showError={!!errors.email?.message}
-              errorMessage={errors.email?.message}
-              {...field}
-          />
-        )}
-        />
+      <div className="login_context">
         <Controller
-          name="username"
+          name="user"
           control={control}
           defaultValue=""
           render={({ field, formState: { errors } }) => (
             <Input
-              label="Seu nome de usuário"
-              showError={!!errors.username?.message}
-              errorMessage={errors.username?.message}
+              label="Seu nome de usuário ou email"
+              showError={!!errors.user?.message}
+              errorMessage={errors.user?.message}
               {...field}
             />
           )}
@@ -104,8 +80,8 @@ const CreateAccountForm: FC = () => {
       <Button
         variant="contained"
         type="submit"
-        disabled={disabledBtn}
-      >Criar conta</Button>
+        disabled={isPending}
+      >Acessar</Button>
       <SnackBarCustom
         open={openSnackbar}
         onClose={() => setOpenSnackbar(false)}
@@ -116,4 +92,4 @@ const CreateAccountForm: FC = () => {
   )
 }
 
-export default CreateAccountForm;
+export default LoginForm;

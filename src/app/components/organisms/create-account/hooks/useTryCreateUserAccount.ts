@@ -1,4 +1,4 @@
-import { UserForm } from "@/app/interfaces/user.types";
+import { UserForm } from "@interfaces/user.types";
 import { useRouter } from "next/router";
 
 interface useTryCreateUserAccountProps {

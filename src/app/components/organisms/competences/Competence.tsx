@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 
 import { Competence as CompetenceItem } from "@app/interfaces/competence.types";
 import { Avatar, Card, CardContent, CardHeader, Typography } from "@mui/material";
-import getCompetenceColor from "@/app/utils/competencesColor";
+import getCompetenceColor from "@app/utils/competencesColor";
 
 interface CompetenceProps  {
   competence: CompetenceItem
