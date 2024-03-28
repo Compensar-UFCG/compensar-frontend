@@ -1,6 +1,6 @@
 import { useHomeSessionContext } from "@contexts/HomeProvider";
 import { List, ListItem } from "@mui/material";
-import Question from "../../molecules/questions/Question";
+import Question from "@components/molecules/question-short/QuestionShort";
 
 const Quiz = () => {
   const { myQuestions } = useHomeSessionContext();
@@ -9,7 +9,6 @@ const Quiz = () => {
     <List sx={{
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'end',
     }}>
       {myQuestions.map((question, index) =>
         <ListItem key={index} alignItems="flex-start">
