@@ -1,5 +1,5 @@
 import { Question as QuestionInterface } from "@interfaces/question.types";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { Card, CardContent, CardActions } from '@mui/material';
 
@@ -8,12 +8,14 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import ShareIcon from '@mui/icons-material/Share';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 import ExpandButton from "@components/atoms/ExpandButton";
+import CompetenceTagList from "@components/atoms/competence-tags/CompetenceTagList";
+
 import QuestionHeader from "./QuestionHeader";
 import QuestionMain from "./QuestionMain";
-import CompetenceTagList from "./CompetenceTagList";
+
 import { useHomeSessionContext } from "@contexts/HomeProvider";
 
 interface QuestionProps {
@@ -22,6 +24,7 @@ interface QuestionProps {
 
 const Question: FC<QuestionProps> = ({ question }) => {
   const {
+    _id,
     title,
     statement,
     font,
@@ -32,12 +35,22 @@ const Question: FC<QuestionProps> = ({ question }) => {
     response,
     competences
   } = question;
-  const { saveMyQuestions } = useHomeSessionContext()
+  const { saveMyQuestions, containQuestion, myQuestions } = useHomeSessionContext();
   const [expanded, setExpanded] = useState(false);
+  const [hasAdd, setHasAdd] = useState(containQuestion(_id));
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const addQuestionInListAndUpdateBtn = () => {
+    saveMyQuestions(question);
+    setHasAdd(true);
+  }
+
+  useEffect(() => {
+    setHasAdd(containQuestion(_id));
+  }, [myQuestions, _id, containQuestion]);
 
   return (
     <Card>
@@ -54,12 +67,13 @@ const Question: FC<QuestionProps> = ({ question }) => {
         </CardContent>
       </Collapse>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to list" onClick={() => saveMyQuestions(question)}>
-          <AddCircleIcon/>
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+        {hasAdd ? (
+          <CheckCircleIcon color="success" sx={{ padding: '8px'}}/>
+        ) : (
+          <IconButton aria-label="add to list" onClick={addQuestionInListAndUpdateBtn}>
+            <AddCircleIcon/>
+          </IconButton>
+        )}
         <ExpandButton expanded={expanded} handleExpandClick={handleExpandClick}/>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>

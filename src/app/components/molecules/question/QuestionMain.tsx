@@ -5,7 +5,7 @@ import { CardContent, CardMedia } from '@mui/material';
 
 import Typography from '@mui/material/Typography';
 
-import { alphabet } from "./utils";
+import { alphabet } from "@app/utils/questionUtils";
 
 const QuestionMain: FC<Omit<QuestionProps, '_id' | 'title' | 'font' | 'year' | 'type' | 'competences'>> = ({
   statement,

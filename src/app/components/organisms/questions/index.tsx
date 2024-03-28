@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { List, ListItem, Skeleton } from "@mui/material";
-import Question from "../../molecules/question/Question";
+import Question from "@components/molecules/question/Question";
 
 import useQueryQuestions from "@hooks/useQueryQuestions";
 
@@ -14,7 +14,6 @@ const QuestionList: FC = () => {
     <List sx={{
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'end',
     }}>
       {questions.map((question, index) =>
         <ListItem key={index} alignItems="flex-start">
