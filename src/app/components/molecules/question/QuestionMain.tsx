@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 
 import { alphabet } from "./utils";
 
-const QuestionMain: FC<Omit<QuestionProps, 'id' | 'title' | 'font' | 'year' | 'type' | 'competences'>> = ({
+const QuestionMain: FC<Omit<QuestionProps, '_id' | 'title' | 'font' | 'year' | 'type' | 'competences'>> = ({
   statement,
   image,
   alternatives,
