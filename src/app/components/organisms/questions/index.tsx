@@ -5,7 +5,10 @@ import Question from "@components/molecules/question/Question";
 
 import useQueryQuestions from "@hooks/useQueryQuestions";
 
-const QuestionList: FC = () => {
+interface QuestionListProps {
+  showBtnAdd: boolean
+}
+const QuestionList: FC<QuestionListProps> = ({ showBtnAdd }) => {
   const { questions, isLoading } = useQueryQuestions();
 
   if(isLoading) return <Skeleton variant="rectangular" sx={{ height: '90vh', margin: '16px 0' }} />
@@ -17,7 +20,7 @@ const QuestionList: FC = () => {
     }}>
       {questions.map((question, index) =>
         <ListItem key={index} alignItems="flex-start">
-          <Question question={question}/>
+          <Question question={question} showBtnAdd={showBtnAdd}/>
         </ListItem>
       )}
     </List>

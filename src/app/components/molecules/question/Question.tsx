@@ -19,10 +19,11 @@ import QuestionMain from "./QuestionMain";
 import { useHomeSessionContext } from "@contexts/HomeProvider";
 
 interface QuestionProps {
-  question: QuestionInterface
+  question: QuestionInterface;
+  showBtnAdd: boolean
 }
 
-const Question: FC<QuestionProps> = ({ question }) => {
+const Question: FC<QuestionProps> = ({ question, showBtnAdd }) => {
   const {
     _id,
     title,
@@ -68,12 +69,12 @@ const Question: FC<QuestionProps> = ({ question }) => {
       </Collapse>
       <CardActions disableSpacing>
         {hasAdd ? (
-          <CheckCircleIcon color="success" sx={{ padding: '8px'}}/>
-        ) : (
-          <IconButton aria-label="add to list" onClick={addQuestionInListAndUpdateBtn}>
-            <AddCircleIcon/>
-          </IconButton>
-        )}
+            <CheckCircleIcon color="success" sx={{ padding: '8px'}}/>
+          ) : showBtnAdd && (
+            <IconButton aria-label="add to list" onClick={addQuestionInListAndUpdateBtn}>
+              <AddCircleIcon/>
+            </IconButton>
+          )}
         <ExpandButton expanded={expanded} handleExpandClick={handleExpandClick}/>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
