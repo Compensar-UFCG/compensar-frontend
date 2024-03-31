@@ -2,10 +2,9 @@ import { Question as QuestionProps } from "@interfaces/question.types";
 import { FC } from "react";
 
 import { CardHeader, Avatar } from '@mui/material';
+import { FontColor } from "@app/utils/questionUtils";
 
-import { FontColor } from "./utils";
-
-const QuestionHeader: FC<Omit<QuestionProps, 'id' | 'statement' | 'image' | 'alternatives' | 'response' | 'competences'>> = ({
+const QuestionHeader: FC<Omit<QuestionProps, '_id' | 'statement' | 'image' | 'alternatives' | 'response' | 'competences'>> = ({
   title,
   font,
   year,

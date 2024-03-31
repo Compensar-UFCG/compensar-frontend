@@ -5,7 +5,7 @@ export type Font = "enem" | "pisa" | "olimpiadas" | "school" | "other"
 export type Alternatives = string[];
 
 export interface Question {
-  id: UUID | string;
+  _id: UUID | string;
   title: string;
   statement: string;
   image?: string;
