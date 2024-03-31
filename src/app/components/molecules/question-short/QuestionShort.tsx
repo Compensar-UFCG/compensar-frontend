@@ -1,11 +1,10 @@
 import { Question as QuestionInterface } from "@interfaces/question.types";
 import { FC, useState } from "react";
 
-import { Card, CardActions } from '@mui/material';
+import { Card } from '@mui/material';
 
 import Collapse from '@mui/material/Collapse';
 
-import ExpandButton from "@components/atoms/ExpandButton";
 import QuestionHeader from "./QuestionHeader";
 import QuestionMain from "./QuestionMain";
 import { useHomeSessionContext } from "@contexts/HomeProvider";
