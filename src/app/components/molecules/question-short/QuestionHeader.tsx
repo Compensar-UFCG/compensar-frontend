@@ -1,12 +1,12 @@
 import { Question as QuestionProps } from "@interfaces/question.types";
 import { Dispatch, FC, SetStateAction } from "react";
 
-import { CardHeader, Avatar, IconButton, Box } from '@mui/material';
+import { CardHeader, Avatar, IconButton } from '@mui/material';
 
 import { FontColor } from "../../../utils/questionUtils";
 import ExpandedButton from "@components/atoms/ExpandButton";
 
-import DeleteIcon from '@mui/icons-material/Delete';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface QuestionHeaderProps extends Omit<QuestionProps, '_id' | 'statement' | 'image' | 'alternatives' | 'response' | 'competences'> {
   expanded: boolean;
@@ -39,8 +39,8 @@ const QuestionHeader: FC<QuestionHeaderProps> = ({
       subheader={`Fonte: ${font} ${year} [${type}]`}
       action={
         <>
-          <IconButton aria-label="remove to list" onClick={removeQuestion}>
-            <DeleteIcon color="error"/>
+          <IconButton aria-label="remove to list" onClick={removeQuestion} size="small">
+            <CloseIcon fontSize="small"/>
           </IconButton>
           <ExpandedButton expanded={expanded} handleExpandClick={handleExpandClick}/>
         </>
