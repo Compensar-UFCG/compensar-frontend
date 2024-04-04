@@ -54,7 +54,7 @@ const Question: FC<QuestionProps> = ({ question, showBtnAdd }) => {
   }, [myQuestions, _id, containQuestion]);
 
   return (
-    <Card>
+    <Card sx={{ width: '-webkit-fill-available'}}>
       <QuestionHeader
         title={title}
         font={font}
