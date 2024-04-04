@@ -1,4 +1,4 @@
-import { red, cyan, pink, lime, purple } from '@mui/material/colors';
+import { cyan, pink, lime, purple } from '@mui/material/colors';
 
 type CompetencesColor =
   "co" |

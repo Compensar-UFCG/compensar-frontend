@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 
 import { Competence as CompetenceItem } from "@app/interfaces/competence.types";
 import { Avatar, Card, CardContent, CardHeader, Typography } from "@mui/material";
@@ -10,12 +10,8 @@ interface CompetenceProps  {
 
 const Competence: FC<CompetenceProps>  = ({ competence }) => {
   const { title, description } = competence;
-  const [expanded, setExpanded] = useState(false);
   const color = getCompetenceColor(title);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
   return (
     <Card sx={{ width: '360px', height: '280px' }}>
       <CardHeader

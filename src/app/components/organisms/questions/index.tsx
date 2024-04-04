@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Backdrop, CircularProgress, Container, List, ListItem, Skeleton } from "@mui/material";
+import { Backdrop, CircularProgress, Container, List, ListItem } from "@mui/material";
 import Question from "@components/molecules/question/Question";
 
 import useQueryQuestions from "@hooks/useQueryQuestions";
