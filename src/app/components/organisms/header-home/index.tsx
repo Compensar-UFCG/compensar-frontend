@@ -7,7 +7,8 @@ const HeaderHome: FC = () => {
   return (
     <header>
       <Container sx={{
-        padding: '12px 16px 42px',
+        padding: '12px 16px',
+        marginBottom: '16px'
       }}>
         <NavBar/>
       </Container>
