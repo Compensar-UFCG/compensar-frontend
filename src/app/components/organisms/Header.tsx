@@ -18,10 +18,18 @@ const Header: FC = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          gap: '32px'
         }}>
-          <Typography variant="subtitle1" gutterBottom>The making of a Marvel prototype</Typography>
-          <Typography variant="h1" gutterBottom>Compensar</Typography>
+          <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+            <Typography variant="h1">Compensar</Typography>
+            <Typography variant="subtitle1">Plataforma de questões avaliadas com competências do pensamento computacional</Typography>
+          </Box>
           <Button variant="contained" onClick={redirectToLoginPage}>Acesse agora</Button>
         </Box>
       </Container>
