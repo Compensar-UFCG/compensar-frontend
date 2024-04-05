@@ -17,7 +17,8 @@ const Quiz: FC<QuizProps> = ({ setOpen }) => {
       borderRadius: '10px',
       background: grey[100],
       padding: '16px !important',
-      height: 'fit-content'
+      height: '84vh',
+      overflowY: 'scroll'
     }}>
       <QuizHeader setOpen={setOpen}/>
       <QuizList/>

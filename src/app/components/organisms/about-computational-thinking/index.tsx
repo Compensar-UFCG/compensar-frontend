@@ -1,4 +1,4 @@
-import { Box, CardMedia, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 
 const AboutComputationalThinking = () => {
   return (
@@ -16,16 +16,13 @@ const AboutComputationalThinking = () => {
         <Grid item xs={6}>
           <Box>
             <Typography variant='h4' gutterBottom>O que é Pensamento Computacional?</Typography>
-            <Typography variant="subtitle1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum vehicula justo, at sagittis quam malesuada quis. Phasellus ac eros sed turpis fermentum consectetur. Fusce eget lorem nec neque congue fringilla. Duis id libero vitae nulla tincidunt laoreet. Morbi nec erat vitae nunc bibendum posuere sed sed est. Phasellus id luctus dolor. Integer non leo in tortor aliquam posuere a eu lectus. Nullam eget est velit. Cras vulputate enim in arcu eleifend, et lacinia justo aliquam. Vestibulum in massa risus. Nam consectetur laoreet purus, sit amet sodales ex lacinia eget.</Typography>
+            <Typography variant="subtitle1">O pensamento computacional (PC) é uma abordagem para resolver problemas que se baseia nas competências aprendidas com a ciência da computação. Não se resume apenas à programação de computadores, mas sim a uma maneira estruturada e modularizada de pensar. O PC é fundamentalmente uma habilidade humana que se estende para além da tecnologia, permitindo a identificação e solução de problemas em diversos contextos.</Typography>
           </Box>
         </Grid>
         <Grid item xs={4}>
-          <CardMedia
-            component="img"
-            height="260"
-            image="https://i.pravatar.cc/300"
-            alt="Paella dish"
-          />
+          <picture>
+            <img src="/Pensamento-Computacional.png" alt="pc-image" className="about-ct__image"/>
+          </picture>
         </Grid>
       </Grid>
     </Container>
