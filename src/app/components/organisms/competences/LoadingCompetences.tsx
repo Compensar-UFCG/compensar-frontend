@@ -17,7 +17,7 @@ const LoadingCompetences = () => {
         alignItems: 'center',
         gap: '8px' }}
       >
-        {Array.from({ length: 9 }, () => 0).map((index) => <Skeleton key={index} variant="rectangular" sx={{ width: '360px', height: '280px' }} />)}
+        {Array.from({ length: 9 }, () => 0).map((value, index) => <Skeleton key={value+index} variant="rectangular" sx={{ width: '360px', height: '280px' }} />)}
       </Grid>
     </Container>
   )
